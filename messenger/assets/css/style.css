@@ -1,0 +1,537 @@
+/* پیام‌رسان وب نسل ۲۰۲۶ - استایل اصلی */
+
+:root {
+    --primary-color: #00A884;
+    --primary-dark: #008f6f;
+    --secondary-color: #1c2935;
+    --bg-color: #0e1621;
+    --surface-color: #17212b;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-color: #2b3947;
+    --danger-color: #ff5252;
+    --warning-color: #ffc107;
+    --success-color: #4caf50;
+    --message-out: #005c4b;
+    --message-in: #17212b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    direction: rtl;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* هدر شیشه‌ای */
+.glass-header {
+    background: rgba(23, 33, 43, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: white;
+}
+
+.badge-blue { background: linear-gradient(135deg, #2196f3, #1976d2); }
+.badge-gold { background: linear-gradient(135deg, #ffd700, #ffb300); }
+.badge-black { background: linear-gradient(135deg, #424242, #212121); }
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+/* محتوای اصلی */
+.main-container {
+    margin-top: 60px;
+    margin-bottom: 70px;
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* لیست چت‌ها */
+.chat-list {
+    padding: 8px;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.chat-item:hover {
+    background: var(--surface-color);
+}
+
+.chat-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 12px;
+}
+
+.chat-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chat-preview {
+    color: var(--text-secondary);
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-meta {
+    text-align: left;
+    min-width: 60px;
+}
+
+.chat-time {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.unread-badge {
+    background: var(--primary-color);
+    color: white;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+/* نوار ناوبری پایین */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(23, 33, 43, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 4px 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.nav-item.active,
+.nav-item:hover {
+    color: var(--primary-color);
+    background: rgba(0, 168, 132, 0.1);
+}
+
+.nav-item svg {
+    margin-bottom: 4px;
+}
+
+.nav-item span {
+    font-size: 12px;
+}
+
+/* صفحه چت */
+.chat-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+}
+
+.back-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.chat-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.chat-user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-details h3 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.last-seen {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    align-self: flex-start;
+    background: var(--message-out);
+    border-bottom-right-radius: 4px;
+}
+
+.message.received {
+    align-self: flex-end;
+    background: var(--message-in);
+    border-bottom-left-radius: 4px;
+}
+
+.message-text {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.message-media {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.message-time {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-align: left;
+    margin-top: 4px;
+}
+
+.message-input-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+}
+
+.message-input-area input {
+    flex: 1;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 12px 20px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.message-input-area input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.send-btn {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.send-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Skeleton Loader */
+.skeleton-loader {
+    padding: 8px;
+}
+
+.skeleton-item {
+    height: 72px;
+    background: linear-gradient(90deg, var(--surface-color) 25%, var(--border-color) 50%, var(--surface-color) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-message {
+    height: 60px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+}
+
+.skeleton-left {
+    margin-right: auto;
+    width: 60%;
+}
+
+.skeleton-right {
+    margin-left: auto;
+    width: 50%;
+}
+
+/* منوی Context */
+.context-menu {
+    position: fixed;
+    background: rgba(23, 33, 43, 0.98);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 200px;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.context-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.context-menu-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.context-menu-item.danger {
+    color: var(--danger-color);
+}
+
+/* آپدیت‌ها (Updates) */
+.updates-container {
+    padding: 16px;
+}
+
+.my-status-section {
+    margin-bottom: 24px;
+}
+
+.status-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--surface-color);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.status-card:hover {
+    transform: translateY(-2px);
+}
+
+.status-avatar {
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.status-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+.add-status-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 2px solid var(--surface-color);
+}
+
+.status-info h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.status-info p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.channels-section h3 {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.channels-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.channel-card {
+    background: var(--surface-color);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.channel-card:hover {
+    transform: translateY(-4px);
+}
+
+.channel-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    object-fit: cover;
+}
+
+.channel-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.channel-subs {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .main-container {
+        margin-bottom: 65px;
+    }
+    
+    .message {
+        max-width: 85%;
+    }
+}
